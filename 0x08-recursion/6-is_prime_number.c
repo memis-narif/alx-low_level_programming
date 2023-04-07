@@ -8,9 +8,10 @@ int actual_prime(int n, int i);
 */
 int is_prime_number(int n)
 {
-	if (n == 1)
+	if (n <=  1)
 		return (0);
-	return (actual_prime(n, n - 1));
+	else
+		return (actual_prime(n, 2));
 }
 /**
 *actual_prime - calculates if a number is prime recursively
@@ -20,10 +21,11 @@ int is_prime_number(int n)
 */
 int actual_prime(int n, int i)
 {
-	if (i == 1)
-		return (1);
-	if (n % i == 0 && i > 0)
+	if (n % i == 0 && n != i)
 		return (0);
-	return (actual_prime(n, i - 1));
+	else if (i == n)
+		return (1);
+	else
+		return (actual_prime(n, i + 1));
 }
 
